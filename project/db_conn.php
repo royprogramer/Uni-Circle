@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dbms_project";
+$dbname = "unicircle";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

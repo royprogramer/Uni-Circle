@@ -33,6 +33,8 @@ const params = {
     friction: 0.5,
 };
 
+
+
 const trail = new Array(params.pointsNumber);
 for (let i = 0; i < params.pointsNumber; i++) {
     trail[i] = {
@@ -66,6 +68,19 @@ setupCanvas();
 update(0);
 
 window.addEventListener("resize", setupCanvas);
+function updateMousePosition(eX, eY) {
+    pointer.x = eX;
+}
+
+// Add logout functionality here
+const logoutButton = document.querySelector('.nav__logout');
+
+logoutButton.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Redirect the user to the index.html page
+    window.location.href = 'index.html';
+});
 
 function update(t) {
 

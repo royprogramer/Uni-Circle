@@ -5,9 +5,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get username and password from the form
     $username = $_POST["username"];
     $password = $_POST["password"];
+  
 
   // Prepare and execute a SQL query to check the credentials
-  $stmt = $conn->prepare('SELECT * FROM users WHERE username = ?');
+  $stmt = $conn->prepare('SELECT * FROM user_table WHERE username = ?');
   $stmt->bind_param('s', $username);
   $stmt->execute();
 
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Verify the entered password against the stored hash
       if ($row['username']=$username && $row['password']==$password) {
           // Authentication successful, redirect to the welcome page
-          header("Location: welcome.php");
+          header("Location: homePage.html");
           exit();
       } else {
           // Authentication failed, display an error message
