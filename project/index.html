@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="./style.css">
+
+        <title>Responsive sidebar submenus</title>
+    </head>
+    <body>
+        <!--========== HEADER ==========-->
+        <header class="header">
+            <div class="header__container">
+               
+                <a href="#" class="header__logo"><h2>GoCircle</h2></a>
+    
+                <div class="header__search">
+                    <i class='bx bx-search header__icon'></i>
+                    <input type="search" placeholder="Search" class="header__input">            
+                </div>
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
+
+                <nav class="nav_header">
+                    <div class="create">
+                        <a href="#"> 
+                            <label for="create" class="btn btn-primary">Create</label>
+                        </a>
+                        <img src="./img/perfil.jpg" alt="" class="header__img">
+                    </div>
+                    
+                </nav>
+                
+            </div>
+            
+        </header>
+
+        <!--========== NAV ==========-->
+            <div class="nav" id="navbar">
+                <nav class="nav__container">
+                    
+                    <div>
+                        <a href="#" class="nav__link nav__logo">
+                           <img src="./img/Go.svg" alt="">
+                            <span class="nav__logo-name"> <h3>GoCircle</h3></span>
+                        </a>
+        
+                        <div class="nav__list">
+                                
+                                <a href="#" class="nav__link active">
+                                    <i class='bx bx-home nav__icon' ></i>
+                                    <span class="nav__name">Home</span>
+                                </a>
+    
+                                <a href="#" class="nav__link">
+                                     <i class='bx bx-user nav__icon' ></i>
+                                     <span class="nav__name">Profile</span>
+                                </a>
+    
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-conversation nav__icon' ></i>
+                                    <span class="nav__name">Discussions</span>
+                                </a>
+    
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-trophy nav__icon'></i>
+                                    <span class="nav__name">Compititions</span>
+                                </a>
+    
+                                <a href="#" class="nav__link">
+                                    <i class='bx bxs-graduation nav__icon'></i>
+                                    <span class="nav__name">Learn</span>
+                                </a>
+    
+                                <a href="#" class="nav__link">
+                                    <i class='bx bxs-network-chart nav__icon'></i>
+                                    <span class="nav__name">Team</span>
+                                </a>
+    
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-medal nav__icon'></i>
+                                    <span class="nav__name">Rank</span>
+                                </a>
+                            
+        
+                            <div class="nav__items">
+                                <h3 class="nav__subtitle">Menu</h3>
+        
+                                <div class="nav__dropdown">
+                                    <a href="#" class="nav__link">
+                                        <i class='bx bxs-bar-chart-alt-2 nav__icon'></i>
+                                        <span class="nav__name">Activity</span>
+                                        <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                    </a>
+    
+                                    <div class="nav__dropdown-collapse">
+                                        <div class="nav__dropdown-content">
+                                            <a href="#" class="nav__dropdown-item">Recent Event</a>
+                                            <a href="#" class="nav__dropdown-item">Host a Competition</a>
+                                            <a href="#" class="nav__dropdown-item">Your work</a>
+                                            <a href="#" class="nav__dropdown-item">Blog</a>
+                                            <a href="#" class="nav__dropdown-item">CV</a>
+                                        </div>
+                                    </div>
+    
+                                </div>
+    
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-compass nav__icon' ></i>
+                                    <span class="nav__name">Explore</span>
+                                </a>
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-book-reader nav__icon'></i>
+                                    <span class="nav__name">Study plan</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <a href="#" class="nav__link nav__logout">
+                        <i class='bx bx-log-out nav__icon' ></i>
+                        <span class="nav__name">Log Out</span>
+                    </a> 
+                </nav>     
+            </div>
+
+        <!--========== CONTENTS ==========-->
+            <div class="container">     
+                <main class="main_content">
+                    <div class="container2">
+                        <div class="line">
+                            <h3>Keep Going & Grow Together With Your Peers</h3>
+                        </div>
+                    </div>
+                
+                    <div class="glassy_overlay">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </main>
+                  
+                <div class="content1"></div>
+                <div class="content2">
+                    <!-- <div class="mycircle">
+                        <h2>My Circles</h2>
+                        <img src="./img/ai_uiu.png" alt="">
+                        <div class="circle-picture" id = "my-circle-picture">
+                            <img src="./img/uiu.png" alt="">
+                        </div>
+                        <p>Freshers of AI</p>
+                    </div>
+
+
+                    <form class="create">
+                        <div class="circle-picture" id = "my-circle-picture">
+                            <img src="./img/uiu.png" alt="">
+                        </div>
+                        <input type="text" placeholder="create a circle" id="create">
+                        <input type="submit" value="create" class="btn btn-primary">
+                    </form> -->
+
+                </div>
+                <div class="content3"></div>
+                <footer>Footer</footer>
+            </div>
+
+        
+
+
+    
+
+        <!--========== MAIN JS ==========-->
+        <script src="./main.js"></script>
+    </body>
+</html>
