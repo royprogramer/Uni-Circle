@@ -64,7 +64,7 @@ body {
 
 }
 
-h3 {
+h5 {
   margin: 0;
 }
 
@@ -111,6 +111,7 @@ img {
   color: var(--title-color);
   font-weight: var(--font-medium);
   display: none;
+  
 }
 
 .header__logo :hover{
@@ -151,13 +152,13 @@ img {
 }
 
 .line{
-  padding: 9.5rem;
-  top: 10%;
+  padding: 10rem;
+  top: 9%;
   opacity: .75;
 }
 .line h3{
 
-  width: 40%;
+  width: 70%;
   background: #cfcfcf;
   background: linear-gradient(to top, #cecece, #fff 100%);
   background-clip: text;
@@ -205,12 +206,15 @@ img {
 .container{
   display: grid;
   height: 100vh;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows:  0.5fr 4fr 2fr;
+  grid-template-columns: 0.5fr 6fr 0.5fr;
+  grid-template-rows:  2fr auto 0.5fr;
   grid-template-areas: 
     "main main main"
     "content1 content2 content3"
     "footer footer footer";
+
+  padding: 0;
+
 
 }
 
@@ -219,23 +223,26 @@ main{
   background: var(--body-color);
   grid-area: main;
   padding: 0;
-  margin: 0;
 
 }
 
 .content1{
   background: var(--body-color);
   grid-area: content1;
+
 }
 
 .content2{
-  background:#73868b;
+  background: var(--body-color);
   grid-area: content2;
+  
+
 }
 
 .content3{
   background: var(--body-color);
   grid-area: content3;
+
 }
 
 footer{
@@ -243,11 +250,6 @@ footer{
   grid-area: footer;
 }
 
-.create-wrapper{
-  display: flex;
-  gap: .5rem;
-  height: 12rem;
-}
 
 .canvas-content{
   grid-area: main;
@@ -258,7 +260,6 @@ footer{
   left: 0;
   max-width: 400px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(50px);
   pointer-events: none;
  
@@ -280,6 +281,8 @@ canvas {
   left: 0;
   width: 100%;
   max-height: 400%;
+
+  background: linear-gradient(transparent,#1c2137);
 
 }
 
@@ -316,6 +319,9 @@ canvas {
 .nav__logo {
   font-weight: var(--font-semi-bold);
   margin-bottom: 2.5rem;
+
+  width: 24px;
+  height: 35px;
 }
 
 .nav__list, 
@@ -493,4 +499,69 @@ canvas {
     opacity: 1;
   }
 }
+
+
+/* ................create................ */
+
+
+.create-wrapper{
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows:  2fr 2fr 2fr 2fr 2fr;
+  row-gap: 6rem;
+  column-gap: 2rem;
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  height: 12rem ; 
+
+}
+
+.create-wrapper .mycircle{
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(var(--first-color), transparent );
+  align-items: center;
+  border-radius: var(--card-border-radius);
+}
+
+.mycircle.header__img{
+  position: absolute;
+  top: .6rem;
+  left: .2rem;
+  width: 2.4rem;
+  border: 2px dashed var(--body-color);
+  background: #fff;
+  z-index: 8;
+  align-self:  center;
+  aspect-ratio: 1/1;
+
+}
+
+
+.mycircle.para{
+
+  text-align: center;
+  margin: -3rem;
+  color: var(--text-color);
+  z-index: 8;
+  position: absolute;
+  width: 100%;
+  font: bold;
+  
+}
+
+.mycircle>img{
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mycircle>div{
+  display: grid;
+  flex-direction: column;
+}
+
 

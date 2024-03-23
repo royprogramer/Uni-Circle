@@ -1,3 +1,4 @@
+
 /*==================== SHOW NAVBAR ====================*/
 const showMenu = (headerToggle, navbarId) => {
     const toggleBtn = document.getElementById(headerToggle);
@@ -14,6 +15,9 @@ const showMenu = (headerToggle, navbarId) => {
     }
 };
 showMenu('header-toggle', 'navbar');
+
+
+// cnavas
 
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
@@ -135,6 +139,10 @@ var mainContentWidth = document.querySelector('.main_content').offsetWidth;
 
 }
 
+//end canvas
+
+
+
 /*==================== LINK ACTIVE ====================*/
 const linkColor = document.querySelectorAll('.nav__link');
 
@@ -144,3 +152,4 @@ function colorLink() {
 }
 
 linkColor.forEach(l => l.addEventListener('click', colorLink));
+
