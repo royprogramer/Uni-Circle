@@ -1,4 +1,16 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // Destroy the session
+    session_destroy();
+
+    // Redirect to the landing page
+    header("Location: /Project Files/project/Landing Page/landing_page.html");
+}
+?>
+
 <!DOCTYPE html>
+
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -128,10 +140,10 @@
                         </div>
                     </div>
     
-                    <a href="#" class="nav__link nav__logout">
-                        <i class='bx bx-log-out nav__icon' ></i>
-                        <span class="nav__name">Log Out</span>
-                    </a> 
+                    <a href="logout_process.php" class="nav__link nav__logout">
+    <i class='bx bx-log-out nav__icon' ></i>
+    <span class="nav__name">Log Out</span>
+</a>
                 </nav>     
             </div>
 
@@ -230,7 +242,7 @@
                 </div>
                
 
-                <!-- <div class="post">
+                 <!-- <div class="post">
                     <form class="create" action="submit_circle.php" method="post" enctype="multipart/form-data">
 
                         <input class="circle_img" type="file" id="formFile">

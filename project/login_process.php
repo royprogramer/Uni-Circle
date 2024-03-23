@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "db_conn.php";
@@ -22,9 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $row = $result->fetch_assoc();
 
       // Verify the entered password against the stored hash
-      if ($row['username']=$username && $row['password']==$password) {
-          // Authentication successful, redirect to the welcome page
-          header("Location: homePage.html");
+      if ($row['username']=$username && password_verify($password, $row['password'])) {
+          // Authentication successful, set session variables
+         // $_SESSION["username"] = $username;
+         $_SESSION['loggedin'] = true;
+
+          // Redirect to the welcome page
+          header("Location: homePage.php");
           exit();
       } else {
           // Authentication failed, display an error message

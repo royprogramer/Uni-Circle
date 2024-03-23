@@ -1,33 +1,32 @@
 <?php
-
-// Check if the verification token is present in the URL
-
+// Check if the OTP is present in the POST data
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['token'])) {
-    // Retrieve the verification token from the URL
-    $verification_token = $_GET['token'];
-    echo''. $verification_token .'';
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['otp'])) {
+    // Retrieve the OTP from the POST data
+    $otp = $_POST['otp'];
 
-    // Check if the token matches the one stored in the session
-    if (isset($_SESSION['user_data']) && $_SESSION['user_data']['verification_token'] === $verification_token) {
-        // Token is valid, retrieve user data from the session
-        $username = $_SESSION['user_data']['username'];
-        $password = $_SESSION['user_data']['password'];
-        $user_Email = $_SESSION['user_data']['email'];
-        echo $password;
+    // Check if the OTP matches the one stored in the session
+    if (isset($_SESSION['user_data']) && $_SESSION['user_data']['otp'] == $otp) {
+        // OTP is valid, retrieve user data from the session
+        $inputUsername = $_SESSION['user_data']['username'];
+        $inputPassword = $_SESSION['user_data']['password'];
+        $inputUserEmail = $_SESSION['user_data']['email'];
+        $hashedPassword = password_hash($inputPassword, PASSWORD_DEFAULT);
+    
+
 
         // Include database connection
         include "db_conn.php";
 
         // Prepare and execute a SQL query to insert the new user
         $stmt = $conn->prepare('INSERT INTO user_table (username, User_Email, password) VALUES (?, ?, ?)');
-        $stmt->bind_param('sss', $username, $user_Email, $password);
+        $stmt->bind_param('sss', $inputUsername, $inputUserEmail, $hashedPassword);
         $stmt->execute();
 
         // Check if the query was successful
         if ($stmt->affected_rows > 0) {
             // Registration successful, redirect to the login page
-            header("Location: login.php");
+            header("Location: index.php");
             exit();
         } else {
             // Registration failed, display an error message
@@ -41,13 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['token'])) {
         // Unset the session data
         unset($_SESSION['user_data']);
     } else {
-        // Invalid token or token not found
-        echo "Invalid verification token.";
+        // Invalid OTP or OTP not found
+        echo "Invalid OTP.";
     }
 } else {
     // Redirect to an error page if accessed directly or with incorrect method
     header("Location: error.php");
     exit();
 }
-
 ?>
